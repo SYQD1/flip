@@ -22,6 +22,21 @@
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/media/flip/home.png" alt="Flip home" width="49%">
+  <img src="docs/media/flip/donut-toolbar.png" alt="Donut toolbar settings" width="49%">
+</p>
+<p align="center">
+  <img src="docs/media/flip/presets.png" alt="Presets" width="49%">
+  <img src="docs/media/flip/theme.png" alt="Themes" width="49%">
+</p>
+<p align="center">
+  <img src="docs/media/flip/general.png" alt="General settings and language" width="49%">
+  <img src="docs/media/flip/developer.png" alt="Developer page" width="49%">
+</p>
+
 ## Features
 
 - **Hundreds of conversions, all local**: images (JPG, PNG, WebP, HEIC, AVIF, TIFF, BMP, PSD...), PDF, Word, Excel,
