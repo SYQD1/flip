@@ -89,8 +89,9 @@ public sealed class Uninstaller(SetupContext context)
             cleaned = RunCleanup(exe);
         if (!cleaned)
             Log.Warn("Filee's cleanup did not finish: what it registered for the user may stay");
-        if (!cleaned || !hasExe)
-            RemoveStartupEntry(folder);
+        // Flip: Setup writes the startup entry itself, so the uninstaller always takes it away (only one that starts
+        // the Flip in this folder).
+        RemoveStartupEntry(folder);
         CleanupFailed = !cleaned;
 
         var hive = PreviousInstall.HiveOf(record.Scope);

@@ -284,6 +284,17 @@ public sealed class Installer(SetupContext context, SetupPayload payload)
             File.Delete(desktop);
         }
 
+        // Flip: start at sign-in right away (the same entry Flip writes from its General page), so it doesn't wait for
+        // Flip's first run.
+        if (choices.Tasks.Startup && !choices.Portable)
+        {
+            var hadEntry = Registry.Get(Hive.CurrentUser, SetupNames.RunKey, SetupNames.AppName) is not null;
+            Registry.SetString(Hive.CurrentUser, SetupNames.RunKey, SetupNames.AppName, $"\"{exe}\" --background");
+            if (!hadEntry)
+                undo.Push(("startup entry", () => Registry.DeleteValue(Hive.CurrentUser, SetupNames.RunKey, SetupNames.AppName)));
+            Log.Info("Added the startup entry");
+        }
+
         // PATH.
         var cli = Path.Combine(folder, SetupNames.CliFolder);
         if (PathVariable.Set(Registry, choices.Scope, cli, choices.Tasks.Cli))
