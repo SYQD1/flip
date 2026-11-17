@@ -1,0 +1,21 @@
+<!-- Developer: the name of the person who makes Flip. -->
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Filee.App.ViewModels.Pages"
+             x:Class="Filee.App.Views.Pages.DeveloperPage"
+             x:DataType="vm:DeveloperPageViewModel">
+  <StackPanel Spacing="18">
+    <TextBlock Classes="h1" Text="{DynamicResource developer.title}" />
+    <Border Classes="card">
+      <Grid ColumnDefinitions="Auto,*" ColumnSpacing="18">
+        <Image Source="avares://Flip/Assets/Icons/filee.png" Width="72" Height="72" VerticalAlignment="Center" />
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+          <TextBlock Classes="muted" Text="{DynamicResource developer.made_by}" />
+          <TextBlock Text="{Binding DeveloperName}" FontSize="28" FontWeight="Bold" FlowDirection="LeftToRight"
+                     HorizontalAlignment="Left" Foreground="{DynamicResource AccentBrush}" />
+          <TextBlock Classes="caption" Text="{DynamicResource developer.based_on}" TextWrapping="Wrap" />
+        </StackPanel>
+      </Grid>
+    </Border>
+  </StackPanel>
+</UserControl>
